@@ -17,7 +17,7 @@ class SettingController extends Controller
     public function index()
     {
         return view('setting', [
-            'folders' => Folder::all()
+            'folders' => Folder::orderBy('weight', 'DESC')->orderBy('created_at', 'DESC')->get()
         ]);
     }
 

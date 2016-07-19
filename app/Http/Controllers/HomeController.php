@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Folder;
 use App\Http\Requests;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -22,6 +22,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', [
+            'folders' => Folder::orderBy('weight', 'DESC')->orderBy('created_at', 'DESC')->get()
+        ]);
     }
 }

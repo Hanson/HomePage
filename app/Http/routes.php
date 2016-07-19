@@ -11,17 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function(){
 
     Route::resource('setting', 'SettingController');
     Route::resource('bookmarks', 'BookmarksController');
+    Route::resource('folder', 'FolderController');
 
 });

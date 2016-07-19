@@ -103,6 +103,10 @@ class BookmarksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(Bookmarks::destroy($id)){
+            return response()->json(['code' => 200, 'msg' => 'success']);
+        }else{
+            return response()->json(['code' => 500, 'msg' => 'fail']);
+        }
     }
 }
