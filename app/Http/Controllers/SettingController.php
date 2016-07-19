@@ -16,7 +16,9 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('setting', ['folders' => Folder::all()]);
+        return view('setting', [
+            'folders' => Folder::all()
+        ]);
     }
 
     /**

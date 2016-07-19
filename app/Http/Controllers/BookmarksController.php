@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Bookmarks;
+use App\Folder;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -36,7 +38,27 @@ class BookmarksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'url' => 'required',
+            'folder_id' => 'required|integer',
+        ]);
+
+        $folderId = $request->get('folder_id');
+
+        $folder = Folder::find($folderId);
+
+        if($folder){
+            Bookmarks::create([
+                'title' => $request->get('title'),
+                'url' => $request->get('url'),
+                'folder_id' => $folder->id
+            ]);
+            return redirect('setting');
+        }else{
+            return redirect('setting')->withErrors('文件夹不存在')->withInput();
+        }
+
     }
 
     /**
