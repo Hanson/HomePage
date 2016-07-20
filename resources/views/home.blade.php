@@ -11,7 +11,7 @@
                     <table class="table">
                         @foreach($folder->bookmarks as $bookmark)
                             <tr>
-                                <td><a href="{{ $bookmark->url }}">{{ $bookmark->title }}</a></td>
+                                <td><a target="_blank" href="{{ $bookmark->url }}">{{ $bookmark->title }}</a></td>
                             </tr>
                         @endforeach
                     </table>
