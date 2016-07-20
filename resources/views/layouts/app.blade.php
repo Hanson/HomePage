@@ -10,7 +10,6 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='http://fonts.useso.com/css?family=Open+Sans:300,400,600&subset=latin,latin-ext'>
 
     <!-- Styles -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -57,7 +56,6 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
