@@ -52,8 +52,8 @@
                             <table class="table">
                                 @foreach($folder->bookmarks as $bookmark)
                                 <tr>
-                                    <td>{{ $bookmark->title }}</td>
-                                    <td>{{ $bookmark->url }}</td>
+                                    <td>{{ str_limit($bookmark->title, 10) }}</td>
+                                    <td>{{ str_limit($bookmark->url, 20) }}</td>
                                     <td><a href="javascript:delBookmarks({{ $bookmark->id }})" class="btn btn-danger btn-sm">删除</a></td>
                                 </tr>
                                 @endforeach
