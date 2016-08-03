@@ -47,7 +47,6 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">导航</a></li>
                     <li><a href="{{ url('/setting') }}">设置</a></li>
                 </ul>
 

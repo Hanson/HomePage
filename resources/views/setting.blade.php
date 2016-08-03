@@ -14,7 +14,7 @@
                 </div>
             @endif
 
-            <form class="form-horizontal" action="{{ url('/bookmarks') }}" id="form" method="post">
+            <form class="form-horizontal" action="{{ url('/bookmarks') }}" id="form" method="post" style="margin-bottom: 30px">
                 {{ csrf_field() }}
                 <legend>新增书签</legend>
                 <div class="form-group">

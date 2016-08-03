@@ -3,6 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="col-sm-12" style="margin-bottom: 20px">
+            <form class="form-inline">
+                百度搜索：
+                <input id="baidu" type="text" class="form-control">
+                <a id="search" target="_blank" href="https://www.baidu.com/s?wd=" type="text" class="form-control">搜索</a>
+            </form>
+        </div>
         @foreach($folders as $folder)
             @if(count($folder->bookmarks) > 0)
             <div class="col-sm-4">
@@ -21,4 +28,13 @@
         @endforeach
     </div>
 </div>
+@endsection
+
+@section('js')
+    <script>
+        var baiduUrl = "https://www.baidu.com/s?wd=";
+        $("#baidu").keyup(function(){
+            $("#search").attr("href", baiduUrl + $(this).val());
+        });
+    </script>
 @endsection
