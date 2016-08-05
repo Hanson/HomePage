@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12" style="margin-bottom: 20px">
-            <form class="form-inline">
+            <div class="form-inline">
                 百度搜索：
                 <input id="baidu" type="text" class="form-control">
-                <a id="search" target="_blank" href="https://www.baidu.com/s?wd=" type="text" class="form-control">搜索</a>
-            </form>
+                <a id="search" target="_blank" href="https://www.baidu.com/s?wd=" class="form-control">搜索</a>
+            </div>
         </div>
         @foreach($folders as $folder)
             @if(count($folder->bookmarks) > 0)
@@ -35,6 +35,12 @@
         var baiduUrl = "https://www.baidu.com/s?wd=";
         $("#baidu").keyup(function(){
             $("#search").attr("href", baiduUrl + $(this).val());
+        });
+
+        $("#baidu").keypress(function(e){
+            if(e.which == 13){
+                window.open($("#search").attr("href"));
+            }
         });
     </script>
 @endsection
