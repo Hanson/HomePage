@@ -7,12 +7,12 @@
             <div class="form-inline">
                 百度搜索：
                 <input id="baidu" type="text" class="form-control">
-                <a id="search" target="_blank" href="https://www.baidu.com/s?wd=" class="form-control">搜索</a>
+                <a id="search" target="_blank" href="javascript:;" class="form-control">搜索</a>
             </div>
         </div>
         @foreach($folders as $folder)
             @if(count($folder->bookmarks) > 0)
-            <div class="col-sm-4">
+            <div class="col-sm-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ $folder->title }}</div>
                     <table class="table">
@@ -33,14 +33,15 @@
 @section('js')
     <script>
         var baiduUrl = "https://www.baidu.com/s?wd=";
-        $("#baidu").keyup(function(){
-            $("#search").attr("href", baiduUrl + $(this).val());
-        });
 
         $("#baidu").keypress(function(e){
             if(e.which == 13){
-                window.open($("#search").attr("href"));
+                window.open(baiduUrl + $(this).val());
             }
+        });
+
+        $("#search").click(function(){
+            window.open(baiduUrl + $("#baidu").val());
         });
     </script>
 @endsection
